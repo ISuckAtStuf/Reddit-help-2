@@ -1,0 +1,51 @@
+#      >>>>>>>>>> This is the .py 
+
+
+import games as g
+
+g.guess()
+
+g.trivia()
+
+import personal as p
+
+print("I am", p.age, "years old")
+print("My favorite subject in school is", p.subject)
+
+p.anecdote()
+
+
+#        >>>>>>>>> This is the .py being imported (The Game)
+
+# Number Guessing Game
+import games as g
+import random
+import colorama
+from colorama import Fore, Style
+
+number = random.randint(1, 10)
+
+# Player name
+
+player_name = input("Hello, What's your name?:\n")
+number_of_guesses = 0
+print('okay! '+ player_name+ ' I am Guessing a number between 1 and 10:')
+
+# While Loop
+
+while number_of_guesses < 11:
+    guess = int(input())
+    number_of_guesses += 1
+    if guess < number:
+        print(Fore.RED + 'Incorrect, try again:\n')
+        
+    if guess > number:
+        print(Fore.RED + 'Incorrect, try again')
+        
+    if guess == number:
+        break
+
+if guess == number:
+    print(Fore.GREEN + 'Correct! You guessed the number in ' + str(number_of_guesses) + ' tries!')
+else:
+    print('You did not guess the number, The number was ' + str(number))
